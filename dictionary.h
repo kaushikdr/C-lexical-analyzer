@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<memory.h>
+#include<stdlib.h>
+#define MAX_HASH_SLOT 100
+typedef struct _DNODE {
+  struct _DNODE* next;
+  struct _DNODE* prev;
+  char* data;            // actual data
+ 
+} __DNODE;
+
+typedef struct _DNODE DNODE;
+
+typedef struct _DICTIONARY {
+  DNODE* hash[MAX_HASH_SLOT]; // the hash table of slots, each slot points to a DNODE
+  DNODE* start;               // start of double link list of DNODES terminated by NULL pointer
+  DNODE* end;                 // points to the last DNODE on this list
+} __DICTIONARY;
+
+typedef struct _DICTIONARY DICTIONARY;
